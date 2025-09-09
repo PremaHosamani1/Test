@@ -23,7 +23,7 @@ resource "aws_iam_role" "example" {
 }
 
 resource "aws_lambda_function" "hello" {
-    function_name = "hello"
+    function_name = var.function_name
     handler = "lambda_function.lambda_handler"
     role= aws_iam_role.example.arn
     runtime = "python3.9"
