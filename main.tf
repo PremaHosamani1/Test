@@ -30,3 +30,10 @@ resource "aws_lambda_function" "hello" {
     filename = "lambda.zip"
     source_code_hash = base64sha256("lambda.zip")
     }
+
+    resource "aws_sqs_queue" "mysqs" {
+        name = var.queue_name
+        delay_seconds = var.delay_seconds
+        sqs_managed_sse_enabled = true
+       
+    }
